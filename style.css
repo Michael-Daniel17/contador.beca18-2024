@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  overflow-y: hidden;
+  background-color: #f5f5f7;
+}
+
+.countdown {
+  margin-right: 20px;
+}
+
+.container {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f7;
+  transition: all .5s ease;
+}
+
+.container .foto {
+  height: 100%;
+  width: 400px;
+}
+
+.container .logo {
+  width: 200px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.container .ministerio {
+  position: absolute;
+  width: 200px;
+  left: 10px;
+  top: 10px;
+}
+
+.countdown {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.fecha {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #004b90;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.fecha div p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.fecha div:first-child p {
+  border: solid 5px #008aec;
+}
+
+.fecha div:nth-child(2) p {
+  border: solid 5px #338f3f;
+}
+
+.fecha div:nth-child(3) p {
+  border: solid 5px #e20613;
+}
+
+.fecha div:nth-child(4) p {
+  border: solid 5px #f49c24;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    overflow: visible;
+  }
+  .container .foto {
+    height: 100%;
+    width: 300px;
+  }
+
+
+
+  .countdown {
+    width: 60%;
+    margin: 100px 0;
+  }
+}
