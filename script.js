@@ -45,7 +45,7 @@ function enviarNotificacionCiertoTiempo() {
 
 function counter () {
     let now = new Date().getTime();
-    let resultadosPronabec = new Date("03/09/2024 16:40:00").getTime();
+    let resultadosPronabec = new Date("03/09/2024 16:44:00").getTime();
     let fechaRestante = resultadosPronabec - now;
     
     let dias = Math.floor(fechaRestante / (1000 * 60 * 60 * 24));
