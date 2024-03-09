@@ -5,10 +5,6 @@ const sec = document.getElementById("sec");
 const resultado = document.querySelector(".resultados");
 const notify = document.getElementById("notify");
 
-document.addEventListener("DOMContentLoaded", e => {
-    permitirNotificaciones()
-});
-
 notify.addEventListener("click", e => {
     permitirNotificaciones()
 })
