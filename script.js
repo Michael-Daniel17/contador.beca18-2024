@@ -12,10 +12,17 @@ notify.addEventListener("click", e => {
 })
 
 function permitirNotificaciones() {
-    Notification.requestPermission()
-    .then(response => {
-        if (response) return counter();
-    });
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission()
+        .then(response => {
+            if (response === "granted") {
+                counter()
+            }
+        });
+    } else {
+        counter()
+    }
+   
 }
 
 function enviarNotificacion() {
@@ -45,7 +52,7 @@ function enviarNotificacionCiertoTiempo() {
 
 function counter () {
     let now = new Date().getTime();
-    let resultadosPronabec = new Date("03/09/2024 16:44:00").getTime();
+    let resultadosPronabec = new Date("03/09/2024 16:54:00").getTime();
     let fechaRestante = resultadosPronabec - now;
     
     let dias = Math.floor(fechaRestante / (1000 * 60 * 60 * 24));
