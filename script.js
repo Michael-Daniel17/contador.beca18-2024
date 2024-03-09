@@ -35,13 +35,17 @@ function enviarNotificacionCiertoTiempo() {
     const notificationTimer = setTimeout(() => {
         counter()
         contador++;
-    }, 5 * 60 * 60 * 1000);
-    if (contador >= 1) clearTimeout(notificationTimer)
+    }, 10 * 1000);
+
+    if (contador >= 1) {
+        contador = 0;
+        clearTimeout(notificationTimer)
+    }
 }
 
 function counter () {
     let now = new Date().getTime();
-    let resultadosPronabec = new Date("03/09/2024 09:00:00").getTime();
+    let resultadosPronabec = new Date("03/09/2024 16:15:00").getTime();
     let fechaRestante = resultadosPronabec - now;
     
     let dias = Math.floor(fechaRestante / (1000 * 60 * 60 * 24));
