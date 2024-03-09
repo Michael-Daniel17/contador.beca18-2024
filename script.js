@@ -5,6 +5,8 @@ const sec = document.getElementById("sec");
 const resultado = document.querySelector(".resultados");
 const notify = document.getElementById("notify");
 
+let contador = 0;
+
 notify.addEventListener("click", e => {
     permitirNotificaciones()
 })
@@ -17,9 +19,9 @@ function permitirNotificaciones() {
 }
 
 function enviarNotificacion() {
-    const notificacion = new Notification("Resultados Beca 18 - 2024", {
+    const notificacion = new Notification("Es hoy 🎉!!! Resultados Primer Momento Beca 18 - 2024", {
             icon: "img/pronabec.png",
-            body: "Revisa constantemente la plataforma del Pronabec"
+            body: "Revisa constantemente la página del Pronabec."
         }
     );
 
@@ -29,13 +31,17 @@ function enviarNotificacion() {
 }
 
 function enviarNotificacionCiertoTiempo() {
-    const fechaResultados = new Date("03/21/2024 09:00:00");
-    console.log(fechaResultados)
+    enviarNotificacion();
+    const notificationTimer = setTimeout(() => {
+        counter()
+        contador++;
+    }, 5 * 60 * 60 * 1000);
+    if (contador >= 1) clearTimeout(notificationTimer)
 }
 
 function counter () {
     let now = new Date().getTime();
-    let resultadosPronabec = new Date("03/21/2024 09:00:00").getTime();
+    let resultadosPronabec = new Date("03/09/2024 09:00:00").getTime();
     let fechaRestante = resultadosPronabec - now;
     
     let dias = Math.floor(fechaRestante / (1000 * 60 * 60 * 24));
@@ -56,7 +62,7 @@ function counter () {
     if (fechaRestante <= 0) {
         clearInterval(interval)
         resultado.style.display = "flex";
-        enviarNotificacion();
+        enviarNotificacionCiertoTiempo()
     }
 }
 
