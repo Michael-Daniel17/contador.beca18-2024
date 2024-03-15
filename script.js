@@ -3,56 +3,11 @@ const hours = document.getElementById("hours")
 const min = document.getElementById("min");
 const sec = document.getElementById("sec");
 const resultado = document.querySelector(".resultados");
-const notify = document.getElementById("notify");
 
-let contador = 0;
-
-notify.addEventListener("click", e => {
-    permitirNotificaciones()
-})
-
-function permitirNotificaciones() {
-    if (Notification.permission !== "granted") {
-        Notification.requestPermission()
-        .then(response => {
-            if (response === "granted") {
-                counter()
-            }
-        });
-    } else {
-        counter()
-    }
-   
-}
-
-function enviarNotificacion() {
-    const notificacion = new Notification("Es hoy 🎉!!! Resultados Primer Momento Beca 18 - 2024", {
-            icon: "img/pronabec.png",
-            body: "Revisa constantemente la página del Pronabec."
-        }
-    );
-
-    notificacion.onclick = () => {
-        window.open("https://www.pronabec.gob.pe/beca-18/")
-    }
-}
-
-function enviarNotificacionCiertoTiempo() {
-    enviarNotificacion();
-    const notificationTimer = setTimeout(() => {
-        counter()
-        contador++;
-    }, 10 * 1000);
-
-    if (contador >= 1) {
-        contador = 0;
-        clearTimeout(notificationTimer)
-    }
-}
 
 function counter () {
     let now = new Date().getTime();
-    let resultadosPronabec = new Date("03/09/2024 16:57:00").getTime();
+    let resultadosPronabec = new Date("03/21/2024 00:00:00").getTime();
     let fechaRestante = resultadosPronabec - now;
     
     let dias = Math.floor(fechaRestante / (1000 * 60 * 60 * 24));
@@ -73,7 +28,6 @@ function counter () {
     if (fechaRestante <= 0) {
         clearInterval(interval)
         resultado.style.display = "flex";
-        enviarNotificacionCiertoTiempo()
     }
 }
 
