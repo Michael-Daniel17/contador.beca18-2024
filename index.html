@@ -13,17 +13,22 @@
 <body>
     <div class="container">
         <nav>
-            <img src="img/2.png" alt="Logo Pronabec" class="logo">
-            <img src="img/3.svg" alt="Logo Ministerio de Educacion" class="ministerio">
+            <a href=""><img src="img/pronabec-logo-blanco.png" alt="Logo Pronabec" class="logo"></a>
+            <i class='bx bx-menu' id="menu"></i>
+            <ul class="opciones">
+                <li><a href="https://www.youtube.com/watch?v=Ca1o_18r7t4" target="_blank">Videotutorial de Postulación</a></li>
+                <li id="calcular-pnts">Calcula tu puntaje</li>
+                <i class='bx bx-x' id="close-menu"></i>
+            </ul>
         </nav>
         <div class="container-elm">
-        <figure class="foto">
-            <img src="img/foto.webp" class="foto" alt="Estudiante de Beca 18 , practicando...">
-        </figure>
+            <figure class="foto">
+                <img src="img/foto.webp" class="foto" id="foto" alt="Estudiante de Beca 18 , practicando...">
+            </figure>
         
-        <div class="countdown">
-            <h1>Resultados Primera Fase Beca 18 - 2024</h1>
-            <div class="fecha">
+            <div class="countdown">
+                <h1>Resultados Primera Fase Beca 18 - 2024</h1>
+                <div class="fecha">
                 <div>
                     <p id="days">23</p>
                     <span>Dias</span>
@@ -40,15 +45,77 @@
                     <p id="sec">23</p>
                     <span>Segundos</span>
                 </div>
-            </div>
-            <div class="resultados">
+                </div>
+                <div class="resultados">
                 <h2>Es hoy 🎉!!! Resultados Primer Momento Beca 18 - 2024</h2>
                 <p>Revisa constantemente la página del Pronabec en: <a href="https://www.pronabec.gob.pe/beca-18/">https://www.pronabec.gob.pe/beca-18/</a> </p>
+                </div>
+                <form class="container-pntj">
+                    <h2>Calcula tu Puntaje</h2>
+                    <section class="calcular">
+                    <div class="data">
+                        <div class="input-container">
+                            <span>PS</span>
+                            <input type="number" name="preseleccion" id="ps">
+                        </div>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="data">
+                        <div class="input-container">
+                            <span>C</span>
+                            <input type="number" name="preseleccion" id="c">
+                        </div>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="data">
+                        <div class="input-container">
+                            <span>G</span>
+                            <input type="number" name="preseleccion" id="g">
+                        </div>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="data">
+                        <div class="input-container">
+                            <span>S</span>
+                            <input type="number" name="preseleccion" id="s">
+                        </div>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="data">
+                        <div class="input-container">
+                            <span>T</span>
+                            <input type="number" name="preseleccion" id="t">
+                        </div>
+                        <span class="plus"> = </span>
+                    </div>
+                    <div class="data">
+                        <div class="input-container">
+                            <span>Total</span>
+                            <input type="number" name="total" id="total">
+                        </div>
+                    </div>
+                    </section>
+                    <section class="mostrar-resultados">
+                        <button id="calcular-puntaje">Calcular</button>
+                    </section>
+                    <section class="significado-abr">
+                        <p>Donde:</p>
+                        <p> <span>PS: </span>Puntaje máximo obtenido en el examen de <span>Preselección</span></p>
+                        <p><span>C:</span> Puntaje máximo del criterio <span>Ranking mejores universidades o Institutos</span></p>
+                        <p><span>G:</span> Puntaje máximo obtenido en <span>Gestión de Universidad o Instituo</span></p>
+                        <p><span>S:</span> Puntaje máximo <span>Ratio de Selectividad</span></p>
+                        <p><span>T:</span> Puntaje máximo en <span>Tasa de Transición</span></p>
+                    </section>
+                    <p id="cerrar">  <i class='bx bx-x' id="close-menu"></i></p>
+                </form>
             </div>
-        </div>
+           
         </div>
         
+        
     </div>
-    <script src="script.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/calcular.js"></script>
 </body>
 </html>
