@@ -72,15 +72,18 @@ nav li {
     margin-bottom: 5px;
 }
 
-
-.opciones li:first-child a {
+.opciones li a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
     padding: .5rem;
 }
 
-.opciones li:first-child a:visited {
+.opciones li a:visited {
     color: #fff;
+}
+
+.opciones li a:hover {
+    color: #000;
 }
 
 .opciones li:first-child a:hover {
@@ -88,8 +91,8 @@ nav li {
 }
 
 nav li:hover {
-    background-color: #fff;
     color: #000;
+    background-color: #fff;
     transition: all .5s ease;
 }
 
@@ -266,6 +269,7 @@ h1 {
 }
 
 .countdown {
+    position: relative;
     flex-direction: column;
     width: 90%;
     margin: auto;
@@ -319,11 +323,12 @@ h1 {
 }
 
 .resultados h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 .resultados p {
-    font-size: .7rem;
+    font-size: .8rem;
 }
 
 .fecha {
@@ -395,6 +400,20 @@ h1 {
         height: 80px;
         width: 80px;
     }
+
+    .resultados {
+        padding: 0 50px ;
+    }
+
+    .resultados h2 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+    
+    .resultados p {
+        font-size: 1.2rem;
+    }
+    
 }
 
 @media screen and (min-width:700px) {
