@@ -9,10 +9,12 @@ menu.addEventListener("click", () => {
 
 closeMenu.addEventListener("click", () => {
     menuLateral.classList.remove("active");
-
 })
 
 document.addEventListener("click", (e) => {
+    if (e.target.matches(".opciones *")) {
+        menuLateral.classList.remove("active");
+    }
     if (!menu.contains(e.target) && !menuLateral.contains(e.target)) {
         menuLateral.classList.remove("active");
     }

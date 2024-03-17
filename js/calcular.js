@@ -5,6 +5,7 @@ const mostrarTabla = document.getElementById("mostrar-tabla");
 const imgFoto = document.getElementById("foto");
 const mostrarResultado = document.getElementById("calcular-puntaje");
 const containerDiv = document.querySelector(".mostrar-resultados");
+const countdown = document.querySelector(".countdown")
 const ps = document.getElementById("ps").value;
 const c = document.getElementById("c").value;
 const g = document.getElementById("g").value;
@@ -13,12 +14,17 @@ const t = document.getElementById("t").value;
 const total = document.getElementById("total");
 
 calcularPuntaje.addEventListener("click", e => {
-    containerCalcular.style.transform = "translateY(0)";
     imgFoto.src = "img/puntajes-tabla.png";
+
+
+    countdown.style.display = "none"
+    containerCalcular.style.display = "block"
 });
 
 closeContainer.addEventListener("click", () => {
-    containerCalcular.style.transform = "translateY(-100%)";
+    countdown.style.display = "flex"
+    containerCalcular.style.display = "none"
+
     imgFoto.src = "img/foto.webp";
     containerCalcular.reset();
     const info = document.querySelector(".resultado-pnts");
@@ -64,7 +70,7 @@ function mostrarResults(info) {
     const div = document.createElement("div");
     div.classList.add("resultado-pnts");
     const p = document.createElement("p");
-    p.innerHTML = `Felicidades!!! 🎉 Tu puntaje total es de : <span>${resultado}</span> pnts`
+    p.innerHTML = `Felicidades!!! 🎉 Tu puntaje total es de : <span>${resultado} pnts </span> `
 
     div.appendChild(p);
     containerDiv.appendChild(div)

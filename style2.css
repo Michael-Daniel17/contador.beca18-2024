@@ -7,6 +7,7 @@
 
 body {
     background-color: #f5f5f7;
+    overflow-x: hidden;
 }
 
 nav {
@@ -31,16 +32,10 @@ nav i {
     cursor: pointer;
 }
 
-nav ul {
-    display: none;
-    color: #000;
-}
-
-
-.opciones.active {
+nav .opciones {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    position: absolute;
     top: 0;
     right: 0;
     height: 250px;
@@ -48,6 +43,22 @@ nav ul {
     z-index: 99;
     padding-top: 2.5rem;
     background-color: #004a92;
+    transform: translateX(110%);
+    transition: all .5s ease;
+    color: #000;
+    box-shadow: 2px 2px 10px #707070;
+}
+
+nav .opciones li::before {
+    content: "👉";
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+
+.opciones.active {
+    transform: translateX(0);
+    transition: all .5s ease;
 }
 
 
@@ -55,13 +66,18 @@ nav li {
     color: #fff;
     list-style: none;
     cursor: pointer;
-    padding: .4rem 1rem;
+    padding: .4rem 2rem;
     text-align: center;
+    font-size: .9rem;
+    background-color: #dbd7d742;
+    margin-bottom: 5px;
 }
+
 
 .opciones li:first-child a {
     text-decoration: none;
     color: #fff;
+    padding: .5rem;
 }
 
 .opciones li:first-child a:visited {
@@ -75,6 +91,7 @@ nav li {
 nav li:hover {
     background-color: #fff;
     color: #000;
+    transition: all .5s ease;
 }
 
 nav #close-menu {
@@ -88,13 +105,15 @@ h1 {
     color: #004b90;
     margin-bottom: 20px;
     font-weight: 500;
+    line-height: 40px;
     text-align: center;
 }
 
 .foto {
     display: block;
     width: 200px;
-    margin: 10px auto;
+    margin: auto;
+    margin-bottom: 10px;
     transition: .5s ease;
 }
 
@@ -104,24 +123,30 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .container-elm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     width: 100%;
+    padding: 20px 0;
 }
 
 .container-pntj {
+    position: relative;
     text-align: center;
-    position: absolute;
-    transform: translateY(-100%);
-    right: 0;
-    top: 0;
-    left: 0;
+    width: 90%;
     background-color: #fff;
     border-radius: 10px;
     padding: .5rem;
     transition: all .5s ease;
     font-size: .8rem;
+    display: none;
+    margin: auto;
 }
 
 .significado-abr {
@@ -205,6 +230,7 @@ h1 {
     top: 10px;
     background-color: #e20613;
     cursor: pointer;
+    z-index: 99;
 }
 
 .input-container {
@@ -225,6 +251,7 @@ h1 {
 
 .container-pntj .data:last-child input {
     pointer-events: none;
+
 }
 
 .container-pntj input {
@@ -239,13 +266,14 @@ h1 {
 }
 
 .countdown {
-    position: relative;
+    flex-direction: column;
     width: 90%;
     margin: auto;
     padding: 1rem;
     border-radius: 10px;
     background-color: #fff;
     overflow-x: hidden;
+    transition: .5s all ease;
 }
 
 .foto button {
@@ -345,6 +373,14 @@ h1 {
   }
 
   /*Aplicamos media-queries*/
+
+@media screen and (min-width:300px) {
+    .foto {
+        width: 250px;
+        margin-top: 30px
+    }
+}
+
 @media screen and (min-width:500px) {
     .container-pntj .calcular {
         padding-left: 50px;
@@ -420,10 +456,10 @@ h1 {
     
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-width:1100px) {
   .container-elm {
     display: flex;
-    align-items: center;
+    flex-direction: row;
   }
 
   .foto {
@@ -432,20 +468,41 @@ h1 {
 
   .countdown {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
     width: 700px;
     height: 450px;
+  }
+
+  .container-pntj {
+    width: 700px;
   }
 
   #menu {
     display: none;
   }
 
-  .opciones {
+  nav .opciones {
     display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 0;
+    transform: translateX(0);
+    background-color: #004a92;
+    box-shadow: none;
   }
+
+  nav li {
+    margin-bottom: 0;
+    background-color: transparent;
+  }
+
+  nav .opciones li::before {
+    content: "";
+    margin-right: 0;
+    font-size: 1rem;
+}
 
   .opciones #close-menu {
     display: none;
